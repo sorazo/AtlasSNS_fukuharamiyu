@@ -53,4 +53,8 @@ class LoginController extends Controller
         }
         return view("auth.login");
     }
+    // loggedOut()メソッドをオーバーライドし、リダイレクト先を指定。
+        public function loggedOut(){
+        return redirect('login');
+    }
 }

@@ -1,22 +1,183 @@
 @charset "utf-8";
-html{
-}
-body{
-}
+
+html {}
+
+body {}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
+}
+
+#head {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#top {
+    /* flex: 0 0 80%; */
+}
+
+#accordion {
+    /* flex: 0 0 19%; */
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+/* アコーディオンメニュー */
+
+/* https: //zero-plus.io/media/javascript-faq/#HTML%E3%81%A8CSS%E3%81%A7%E8%A1%A8%E7%A4%BA%E6%99%82%E3%81%AE%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8B */
+
+/* アコーディオンメニューを作る */
+.qa__block {
+    /* display: flex; */
+    /* flex-direction: column; */
+    min-width: 200px;
+}
+
+.qa__item {
+    display: inline-block;
+}
+
+.qa__head {
+    position: relative;
+    /* text-align: left; */
+    padding: 20px 30px 20px 20px;
+    /* border-radius: 8px 8px 0 0; */
+    background: #186AC9;
+    /* color: #fff; */
+    cursor: pointer;
+    /* width: 100%; */
+}
+
+.qa__body {
+    /* display: block; */
+    position: relative;
+    /* border-radius: 0 0 8px 8px; */
+    background: #fff;
+    color: black;
+    border: 1px solid lightblue;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* アコーディオンメニューの矢印をつくる */
+.qa__head:after {
+    content: "";
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-135deg) translateY(9px);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+}
+
+/* 非表示時のアコーディオンメニューを作る */
+.qa__body {
+    position: relative;
+    /* border-radius: 0 0 8px 8px; */
+    background: #fff;
+    color: black;
+    border: transparent;
+    /*borderを非表示の状態にする*/
+    padding: 0 20px;
+    /*上下のpaddingを0に書き換える*/
+    line-height: 0;
+    /* 非表示時、0*/
+    opacity: 0;
+    /* 非表示時、0*/
+}
+
+/* is-openクラスが付いたときだけアコーディオンメニューが表示されるようにします。また、qa__head要素にis-openクラスを付与したときだけ矢印が上向きになるように */
+.qa__body.is-open {
+    padding: 20px;
+    line-height: 1.5;
+    opacity: 1;
+    border: 1px solid lightblue;
+    /* width: 100%; */
+}
+
+.qa__head.is-open::after {
+    transform: rotate(45deg) translateY(-10px);
+}
+
+/* モーダル */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+/* 削除ホバー設定 */
+.content {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+
+}
+
+.delete {
+    background: url('../images/trash-h.png') no-repeat;
+    background-size: 100px;
+    width: 100%;
+    /* position: relative; */
+}
+
+/* .delete::before {
+    content: '';
+    background-image: url('../public/images/trash.png');
+} */
+
+.delete:hover {
+    background: url('../images/trash.png') no-repeat;
+    background-size: 50px;
+}
+
+/* ユーザー検索　search */
+
+.table {
+    width: 50%;
+    margin-bottom: 22px
 }
