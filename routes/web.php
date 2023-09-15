@@ -43,14 +43,18 @@ Route::put('/top','PostsController@modal')->name('modal');
 Route::get('/post/{id}/delete','PostsController@delete');
 
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile/{id}','UsersController@profile')->name('profile');
+
+Route::put('/profile/edit','UsersController@update');
 
 Route::get('/search','UsersController@search');
 
 // ユーザー名検索
 Route::post('/research','UsersController@research');
+Route::get('/research','UsersController@research');
 
 // https://lull-logbook.com/redmine/issues/2422
+// https://qiita.com/mitsu-0720/items/0c2fcdd367e8a6c5999c
 // フォローする
 Route::get('/follow/{userId}','FollowsController@follow')->name('follow');
 
@@ -58,6 +62,7 @@ Route::get('/follow/{userId}','FollowsController@follow')->name('follow');
 Route::get('/unfollow/{userId}','FollowsController@unfollow')->name('unfollow');
 
 Route::get('/follow-list','FollowsController@followList');
+
 Route::get('/follower-list','FollowsController@followerList');
 
 Route::get('/logout','Auth\LoginController@logout');

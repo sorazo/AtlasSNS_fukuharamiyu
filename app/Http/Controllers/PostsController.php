@@ -13,6 +13,10 @@ class PostsController extends Controller
     // https://qiita.com/mitsu-0720/items/68e52e4b56eb749a5283
     public function index(){
 
+        // Post：：query()　ポストモデルの中の
+        // whereIn('user_id')　user_idが
+        // Auth::user()->follows()->pluck('followed_user_id')　自分がフォローしているユーザーの中でフォロワーが自分であるユーザーを取得して
+        // latest()->get()　最新順に取得する
         // 並び順(orderBy)を投稿日(created_at)の降順(desc)にして全て取得(get)
          $datas= Post::query()->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->orWhere('user_id', Auth::user()->id)->latest()->get();
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Follow;
+use App\Post;
+use Auth;
 use Illuminate\Http\Request;
 
 class FollowsController extends Controller
@@ -27,7 +29,7 @@ class FollowsController extends Controller
             ])
                 ->delete();
         }
-        return redirect('/search');
+        return back();
     }
 
     public function follow($userId)
@@ -49,15 +51,28 @@ class FollowsController extends Controller
                 'following_id' => $loggedInUserId,
                 'followed_id' => $followedUserId,
             ]);
-            return redirect('/search'); // フォロー後に元のページにリダイレクト
+            return back(); // フォロー後に元のページにリダイレクト
         }
     }
 
 
     public function followList(){
-        return view('follows.followList');
+
+        // $followには、ログイン中のユーザーをフォローしているユーザーの一覧が含まれる
+        $follows=User::query()->whereIn('id', Auth::user()->follows()->pluck('followed_id'))->get();
+
+        $followlists=Post::query()->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->latest()->get();
+
+        return view('follows.followList',['followlists'=>$followlists,'follows'=>$follows]);
     }
     public function followerList(){
-        return view('follows.followerList');
+
+        // $followersには、ログイン中のユーザーをフォローしているユーザーの一覧が含まれる
+        $followers=User::query()->whereIn('id', Auth::user()->follower()->pluck('following_id'))->get();
+
+
+        $followerlists=Post::query()->whereIn('user_id', Auth::user()->follower()->pluck('following_id'))->latest()->get();
+
+        return view('follows.followerList',['followerlists'=>$followerlists,'followers'=>$followers]);
     }
 }

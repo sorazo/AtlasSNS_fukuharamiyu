@@ -1,153 +1,159 @@
 @charset "utf-8";
 
-html {}
+/* 共通 */
+html {
+    width: 100%;
+    height: 100%;
+    /* z-index: 2; */
+}
 
-body {}
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.icon img {
+    width: 64px;
+    height: 64px;
+    border-radius: 45px;
+}
 
 /* header */
 header {
+    position: relative;
     background: #186AC9;
+    /* z-index: 1; */
 }
 
 #head {
+
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
+
 }
 
-#top {
-    /* flex: 0 0 80%; */
+#top {}
+
+h1 {
+    padding: 30px;
 }
 
-#accordion {
-    /* flex: 0 0 19%; */
+.atlas img {
+    width: 140px;
+    height: auto;
+    text-align: left;
+}
+
+.accordions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.tag {
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+    top: 50px;
+
+}
+
+.top {
+    padding-right: 40px;
 }
 
 /* main content */
+
+/* トップ */
 #row {
     display: flex;
     flex-flow: row wrap;
 }
 
 #container {
+    flex: 1;
     flex: 0 0 80%;
+    height: 100%;
+    width: 100%;
+    background-color: #DDDDDD;
 }
 
-#side-bar {
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
+/* 投稿 */
+.post {
+    display: flex;
+    padding: 40px 300px 40px 100px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 218px;
 }
 
-/* アコーディオンメニュー */
-
-/* https: //zero-plus.io/media/javascript-faq/#HTML%E3%81%A8CSS%E3%81%A7%E8%A1%A8%E7%A4%BA%E6%99%82%E3%81%AE%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8B */
-
-/* アコーディオンメニューを作る */
-.qa__block {
-    /* display: flex; */
-    /* flex-direction: column; */
-    min-width: 200px;
-}
-
-.qa__item {
-    display: inline-block;
-}
-
-.qa__head {
-    position: relative;
-    /* text-align: left; */
-    padding: 20px 30px 20px 20px;
-    /* border-radius: 8px 8px 0 0; */
-    background: #186AC9;
-    /* color: #fff; */
-    cursor: pointer;
-    /* width: 100%; */
-}
-
-.qa__body {
-    /* display: block; */
-    position: relative;
-    /* border-radius: 0 0 8px 8px; */
-    background: #fff;
-    color: black;
-    border: 1px solid lightblue;
+.textarea {
+    width: 100%;
+    /* margin: 20px; */
+    font-size: 20px;
+    border: none;
     padding: 20px;
-    text-align: center;
+    margin-left: 10px;
+}
+
+.textarea input::placeholder {
+    color: rgba(192, 192, 192, 0.2);
+    /* 半透明の黒色 (0.5は透明度を表します) */
+}
+
+.jet {
+    border: none;
+    background-color: #fff;
+    padding-top: 88px;
+}
+
+.jet img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+/* 投稿一覧 */
+.post-card {
+    background-color: #fff;
+    height: 100%;
+}
+
+.post-block {
+    list-style: none;
+    border-bottom: 1px solid #727272;
+    display: flex;
+    padding: 30px 20px 30px 150px;
+}
+
+.post-box {
     width: 100%;
+    margin-left: 20px;
 }
 
-/* アコーディオンメニューの矢印をつくる */
-.qa__head:after {
-    content: "";
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    transform: rotate(-135deg) translateY(9px);
-    position: absolute;
-    right: 20px;
-    top: 50%;
+.post-box>div {
+    display: flex;
+    justify-content: space-between;
 }
 
-/* 非表示時のアコーディオンメニューを作る */
-.qa__body {
-    position: relative;
-    /* border-radius: 0 0 8px 8px; */
-    background: #fff;
-    color: black;
-    border: transparent;
-    /*borderを非表示の状態にする*/
-    padding: 0 20px;
-    /*上下のpaddingを0に書き換える*/
-    line-height: 0;
-    /* 非表示時、0*/
-    opacity: 0;
-    /* 非表示時、0*/
+.post-name {
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-/* is-openクラスが付いたときだけアコーディオンメニューが表示されるようにします。また、qa__head要素にis-openクラスを付与したときだけ矢印が上向きになるように */
-.qa__body.is-open {
-    padding: 20px;
-    line-height: 1.5;
-    opacity: 1;
-    border: 1px solid lightblue;
-    /* width: 100%; */
+.post-font {
+    line-height: 25px;
 }
 
-.qa__head.is-open::after {
-    transform: rotate(45deg) translateY(-10px);
-}
-
-/* モーダル */
-.content {
-    margin: 0 auto;
-    padding: 40px;
-}
-
-.modal {
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-.modal__bg {
-    background: rgba(0, 0, 0, 0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
-}
-
-.modal__content {
-    background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
+.content img {
+    /* margin: 10px; */
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 /* 削除ホバー設定 */
@@ -155,13 +161,17 @@ header {
     display: flex;
     flex-wrap: nowrap;
     position: relative;
+    justify-content: right;
+    /* padding: 10px; */
 
 }
 
 .delete {
     background: url('../images/trash-h.png') no-repeat;
-    background-size: 100px;
-    width: 100%;
+    background-size: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-position: right;
     /* position: relative; */
 }
 
@@ -172,12 +182,412 @@ header {
 
 .delete:hover {
     background: url('../images/trash.png') no-repeat;
-    background-size: 50px;
+    background-size: 35px;
+    background-position: center;
+}
+
+/* フォローリスト＆フォロワーリスト */
+
+.title {
+    font-weight: bold;
+    font-size: 35px;
+    padding-top: 10px;
+    margin-right: 100px;
+    width: 200px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.icon-list {
+    padding-right: 180px;
+}
+
+/* プロフィール＆編集 */
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px 40px 150px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 218px;
+}
+
+.another {
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 22px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.another th {
+    width: 20%;
+}
+
+.follow {
+    padding-top: 80px;
+    /* text-align: center; */
+}
+
+.follows {
+    padding-top: 80px;
+    /* text-align: center; */
+}
+
+.follow a {
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.follows a {
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #66CCFF;
+    border: 0.5px solid #66CCFF;
+}
+
+.follows a:hover {
+    background-color: #3399FF;
+    border: 0.5px solid #3399FF;
+}
+
+/* 編集 */
+
+.change-block {
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    margin: 0 auto;
+    background-color: #fff;
+    padding-top: 80px;
+    /* width: 100%; */
+}
+
+.change-box {
+    padding: 0 40px;
+    font-weight: bold;
+    font-size: 25px;
+    width: 55%;
+}
+
+.change-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 70px;
+}
+
+.personal {
+    width: 58%;
+    height: 60px;
+    padding: 0 10px;
+    background-color: #EEEEEE;
+    border: 0.5px solid #000;
+}
+
+.space {
+    width: 58%;
+    height: 130px;
+    padding: 0 10px;
+    background-color: #EEEEEE;
+    color: #DDDDDD;
+    border: 0.5px solid #000;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.select {
+    text-align: center;
+    padding: 10px;
+    width: 50%;
+    margin: 42px auto;
+    /* top: 50px; */
+    color: #C0C0C0;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.update {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.up {
+    font-size: 22px;
+}
+
+/* 検索 */
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.sea {
+    /* width: 50%; */
+    display: flex;
+    align-items: center;
+}
+
+.ward {
+    width: 80%;
+    height: 60px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 0 20px;
+    /* margin-bottom: 100px; */
+}
+
+.eye {
+    display: block;
+    border: none;
+    background-color: #fff;
+    margin-left: 10px;
+    /* width: 65px; */
+    height: 65px;
+    /* padding-top: 50px; */
+}
+
+.eye img {
+    border-radius: 5px;
+    width: 65px;
+}
+
+.key {
+    /* font-weight: bold; */
+    font-size: 30px;
+    /* padding-top: 45px; */
+    letter-spacing: 5px;
+}
+
+.table-block {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.table-block td>* {
+    vertical-align: middle;
+}
+
+.table-image {
+    text-align: right;
+
+}
+
+.table-name {
+    /* display: flex; */
+    /* align-items: center; */
+    padding-left: 30px;
+    /* height: 100%; */
+    /* font-weight: bold; */
+    font-size: 25px;
+}
+
+/* サイドバー */
+#side-bar {
+    flex: 0 0 19%;
+    /* position: fixed; */
+    /* height: 100%; */
+    width: 100%;
+    border-left: 1px solid #727272;
+    background-color: #fff;
+}
+
+#confirm {
+    border-bottom: 1px solid #727272;
+    padding: 30px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.side-name {
+    margin-bottom: 30px;
+}
+
+.side-count {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 55%;
+}
+
+.follower {
+    font-size: 18px;
+}
+
+.side-b {
+    /* padding: 30px 0; */
+    text-align: right;
+}
+
+.side-c {
+    text-align: center;
+}
+
+/* アコーディオンメニュー */
+
+/* https: //zero-plus.io/media/javascript-faq/#HTML%E3%81%A8CSS%E3%81%A7%E8%A1%A8%E7%A4%BA%E6%99%82%E3%81%AE%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8B */
+
+/* アコーディオンメニューを作る */
+.qa__block {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 10px;
+    z-index: 1;
+}
+
+.qa__item {
+    display: inline-block;
+}
+
+.qa__head {
+    position: relative;
+    /* text-align: left; */
+    /* padding: 20px 30px 20px 20px; */
+    /* border-radius: 8px 8px 0 0; */
+    /* background: #186AC9; */
+    /* color: #fff; */
+    cursor: pointer;
+    /* width: 100%; */
+    right: 15px;
+
+}
+
+
+/* アコーディオンメニューの矢印をつくる */
+.qa__head:after {
+    content: "";
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-135deg) translateY(9px);
+    position: absolute;
+    /* right: 20px; */
+    /* top: 0; */
+    z-index: 1;
+}
+
+/* 非表示時のアコーディオンメニューを作る */
+.qa__body {
+    position: absolute;
+    /* border-radius: 0 0 8px 8px; */
+    /* background: #fff; */
+    /* color: black; */
+    border: transparent;
+    /*borderを非表示の状態にする*/
+    /* padding: 0 20px; */
+    /*上下のpaddingを0に書き換える*/
+    line-height: 0;
+    /* 非表示時、0*/
+    opacity: 0;
+    /* 非表示時、0*/
+    top: 113px;
+    right: 0;
+    display: none;
+}
+
+/* is-openクラスが付いたときだけアコーディオンメニューが表示されるようにします。また、qa__head要素にis-openクラスを付与したときだけ矢印が上向きになるように */
+.qa__body.is-open {
+    /* padding: 20px; */
+    line-height: 1.5;
+    opacity: 1;
+    border: none;
+    width: 20%;
+    height: 100%;
+    z-index: 20;
+    display: block;
+}
+
+.qa__head.is-open::after {
+    transform: rotate(45deg) translateY(-10px);
+}
+
+.menu {
+    width: 100%;
+    /* padding: 30px 0; */
+    font-size: 30px;
+    border: 2px solid #000080;
+    background-color: #fff;
+
+}
+
+.menu a {
+    display: block;
+    width: 100%;
+    height: 120px;
+    color: #727272;
+    padding-top: 40px;
+}
+
+.menu:hover {
+    background-color: #000080;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+/* モーダル */
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(192, 192, 192, 0.05);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px 50px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 40%;
+    border-radius: 10px;
+}
+
+.modal_post {
+    width: 100%;
+    /* text-align: center; */
+    padding: 20px;
+    height: 250px;
+}
+
+.confirm {
+    text-align: center;
 }
 
 /* ユーザー検索　search */
 
+/* .research {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
 .table {
     width: 50%;
     margin-bottom: 22px
-}
+} */

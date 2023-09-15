@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <!--スマホ,タブレット対応-->
@@ -23,24 +25,21 @@
     <header>
         <div id = "head">
             <div id="top">
-                 <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+                 <h1><a class="atlas" href="/top"><img  src="{{asset('/images/atlas.png')}}"></a></h1>
             </div>
-            <div id="accordion">
-                <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="{{asset('images/icon1.png')}}"></p>
-                    <div class="qa">
-                        <ul class="qa__block">
-                            <li class="qa__item">
-                               <p class="qa__head js-ac" ></p>
-                               <ul class="qa__body ">
-                                     <li><a href="/top">ホーム</a></li>
-                                     <li><a href="/profile">プロフィール</a></li>
-                                     <li><a href="/logout">ログアウト</a></li>
-                               </ul>
-                            </li>
+            <div class="accordions">
+                <p class="tag">{{ Auth::user()->username }}　さん</p>
+                <ul class="qa__block">
+                    <li class="qa__item">
+                        <p class="qa__head js-ac" ></p>
+                        <ul class="qa__body ">
+                                <li class="menu"><a href="/top">ホーム</a></li>
+                                <li class="menu"><a href="{{ route('profile',['id'=>Auth::user()->id] )}}">プロフィール</a></li>
+                                <li class="menu"><a href="/logout">ログアウト</a></li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
+                </ul>
+                <p class="icon top"><img src="{{ asset('storage/storage/' . Auth::user()->images) }}"></p>
             </div>
         </div>
     </header>
@@ -50,19 +49,19 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
-                <div>
-                <p>フォロー数</p>
-                <p>名</p>
+                <p class="side-name">{{ Auth::user()->username }}さんの</p>
+                <div class="side-count">
+                    <p>フォロー数</p>
+                    <p>{{ Auth::user()->follows()->pluck('followed_id') ->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p class="side-b py-4"><a class="follower col-7 btn btn-primary btn-lg" href="/follow-list">フォローリスト</a></p>
+                <div class="side-count">
+                    <p>フォロワー数</p>
+                    <p >{{ Auth::user()->follower()->pluck('following_id') ->count() }}名</p>
                 </div>
-                <p class="btn"><a href="follower-list">フォロワーリスト</a></p>
+                <p class="side-b py-4"><a class="follower col-7 btn btn-primary btn-lg" href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="side-c py-4"><a class="follower col-7 btn btn-primary btn-lg" href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
