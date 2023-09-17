@@ -47,6 +47,11 @@ class PostsController extends Controller
 
     // 投稿の更新処理
     public function modal(Request $request){
+
+        $request ->validate([
+            'post'=>'required|min:1|max:150',
+        ]);
+
         $id = $request->input('id');
         $post = $request->input('post');
         Post::query()

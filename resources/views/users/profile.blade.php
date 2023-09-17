@@ -51,26 +51,76 @@
         <label for="username">user name</label>
         <input class="personal" type="text" id="username" name="username" value="{{ $user->username }}">
       </div>
+      <div class="accident">
+          @if ($errors->has('username'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('username') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
 
       <div class="change-card">
         <label for="mail">mail adress</label>
         <input class="personal" type="email" id="mail" name="mail" value="{{ $user->mail }}">
       </div>
+         <div class="accident">
+          @if ($errors->has('mail'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('mail') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
 
       <div class="change-card">
       <label for="password">password</label>
       <input class="personal" type="password" id="password" name="password" value="">
       </div>
+      <div class="accident">
+          @if ($errors->has('password'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('password') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
 
       <div class="change-card">
       <label for="password_confirmation">password confirm</label>
       <input class="personal" type="password" id="password_confirmation" name="password_confirmation" value="">
       </div>
+      <div class="accident">
+          @if ($errors->has('password_confirmation'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('password_confirmation') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
 
       <div class="change-card">
       <label for="bio">bio</label>
       <input class="personal" type="text" id="bio" name="bio" value="{{ $user->bio }}">
       </div>
+            <div class="accident">
+          @if ($errors->has('bio'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('bio') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
 
       <div class="change-card">
       <label for="images">icon image</label>
@@ -78,6 +128,16 @@
       <input  type="file" id="images" name="images" ><p class="select">ファイルを選択</p>
       </label>
       </div>
+            <div class="accident">
+          @if ($errors->has('images'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('images') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
 
       <div class="update">
       <input class="up btn btn-danger" style="width: 200px;" type="submit" value="更新">

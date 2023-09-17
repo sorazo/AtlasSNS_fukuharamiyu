@@ -21,7 +21,7 @@
       <div class="post-box">
         <div class="post-name">
           <div >{{ $data->user->username }}</div>
-          <div>{{ $data->created_at }}</div>
+          <div>{{ ($data->created_at)->format('Y-m-d H:i') }}</div>
         </div>
         <div class="post-font">{!! nl2br($data->post) !!}</div>
         <!-- 編集・削除ログインユーザーのみつくようにする -->

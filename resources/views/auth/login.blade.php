@@ -9,7 +9,7 @@
 
 <div class="form">
 <div class="label">
-{{ Form::label('e-mail') }}
+{{ Form::label('mail adress') }}
 </div>
 <div class="input">
 {{ Form::text('mail',null,['class' => 'input']) }}
@@ -26,7 +26,7 @@
 </div>
 
 <div class="login">
-{{ Form::submit('ログイン',['class' => 'btn btn-danger btn-lg']) }}
+{{ Form::submit('LOGIN',['class' => 'btn btn-danger btn-lg']) }}
 </div>
 
 <p class="register"><a href="/register">新規ユーザーの方はこちら</a></p>
