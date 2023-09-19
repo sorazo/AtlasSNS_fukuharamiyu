@@ -33,12 +33,12 @@ class PostsController extends Controller
         // dd($request);
 
         $request ->validate([
-            'post'=>'required|min:1|max:150',
+            'new_post'=>'required|min:1|max:150',
         ]);
 
         $post=new Post;
         $post->user_id =$request->user_id;
-        $post->post =$request->post;
+        $post->post =$request->new_post;
         $post->save();
 
         return redirect('/top');
@@ -52,8 +52,10 @@ class PostsController extends Controller
             'post'=>'required|min:1|max:150',
         ]);
 
+        // name属性
         $id = $request->input('id');
         $post = $request->input('post');
+        // ここからカラム名
         Post::query()
         ->where('id',$id)
         ->update(

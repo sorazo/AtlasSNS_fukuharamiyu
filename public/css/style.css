@@ -19,6 +19,16 @@ body {
     border-radius: 45px;
 }
 
+.sab {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 268px;
+    font-size: 20px;
+    /* padding-top: 5px; */
+    background-color: #fff;
+    /* padding-left: 180px; */
+}
+
 /* header */
 header {
     position: relative;
@@ -82,13 +92,17 @@ h1 {
     background-color: #DDDDDD;
 }
 
+.main {
+    margin-bottom: 10px;
+}
+
 /* 投稿 */
 .post {
     display: flex;
-    padding: 40px 300px 40px 100px;
+    padding: 40px 300px 20px 100px;
     background-color: #fff;
-    margin-bottom: 10px;
-    height: 218px;
+    /* margin-bottom: 10px; */
+    height: 268px;
 }
 
 .textarea {
@@ -108,13 +122,23 @@ h1 {
 .jet {
     border: none;
     background-color: #fff;
-    padding-top: 88px;
+    padding-top: 158px;
 }
 
 .jet img {
     width: 50px;
     height: 50px;
     border-radius: 5px;
+}
+
+.action {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    color: #993300;
+    padding-top: 5px;
+    background-color: #fff;
+    padding-left: 180px;
 }
 
 /* 投稿一覧 */
@@ -210,7 +234,7 @@ h1 {
     padding: 50px 20px 40px 150px;
     background-color: #fff;
     margin-bottom: 10px;
-    height: 218px;
+    height: 268px;
 }
 
 .another {
@@ -304,7 +328,7 @@ input[type="file"] {
 .select {
     text-align: center;
     padding: 10px;
-    width: 50%;
+    width: 60%;
     margin: 42px auto;
     /* top: 50px; */
     color: #C0C0C0;
@@ -560,7 +584,7 @@ input[type="file"] {
 }
 
 .modal__bg {
-    background: rgba(192, 192, 192, 0.3);
+    background: rgba(192, 192, 192, 0.05);
     height: 100vh;
     position: absolute;
     width: 100%;
@@ -582,7 +606,17 @@ input[type="file"] {
     width: 100%;
     /* text-align: center; */
     padding: 20px;
-    height: 250px;
+    height: 200px;
+}
+
+.bad {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    color: #993300;
+    padding-top: 5px;
+    background-color: #fff;
+    padding-left: 180px;
 }
 
 .confirm {

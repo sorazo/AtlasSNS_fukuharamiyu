@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-
+<div class="sab">
 <div class="post">
   <h2 class="title">Follower List</h2>
   <div class="icon-list">
@@ -9,6 +9,7 @@
     <a class="icon" href="{{ route('profile',['id'=>$follower->id] )}}"> <img src="{{ asset('storage/storage/' . $follower->images) }}"></a>
   @endforeach
   </div>
+</div>
 </div>
 @foreach($followerlists as $followerlist)
 <div class="post-card">

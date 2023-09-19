@@ -128,7 +128,7 @@
       <input  type="file" id="images" name="images" ><p class="select">ファイルを選択</p>
       </label>
       </div>
-            <div class="accident">
+        <div class="accident">
           @if ($errors->has('images'))
           <tr>
             <th>ERROR</th>

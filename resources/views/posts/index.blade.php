@@ -1,17 +1,28 @@
 @extends('layouts.login')
 
 @section('content')
-
+<div class="main">
   <form action="/save" method="post">
     <div class="post">
     @csrf
     <p class="icon"><img src="{{ asset('storage/storage/' . Auth::user()->images) }}"></p>
     <!-- Auth::user->usernameだと、名前の取得になるため、名前が同じ人とかいたらどっちを出せばいいのかわからなくなる。だから、idを取らないといけない。 -->
     <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
-    <textarea class="textarea" name="post" placeholder="投稿内容を入力してください。"></textarea>
+    <textarea class="textarea" name="new_post" placeholder="投稿内容を入力してください。"></textarea>
     <button type="submit" class="jet"><img src="images/post.png"></button>
     </div>
   </form>
+        <div class="action">
+          @if ($errors->has('new_post'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('new_post') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          @endif
+        </div>
+</div>
 
 @foreach ($datas as $data)
 <div class="post-card">
@@ -45,16 +56,28 @@
     <div class="modal js-modal">
       <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-            <form method="post" action="{{ route('modal',['id'=>$data->id])}}">
+            <form id="form" method="post" action="{{ route('modal',['id'=>$data->id])}}">
                 <textarea name="post" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
+                 <div class="bad">
+          @if ($errors->has('post'))
+          <tr>
+            <th>ERROR</th>
+            @foreach($errors->get('post') as $message)
+            <td> {{ $message }} </td>
+            @endforeach
+          </tr>
+          <script src="{{ asset('js/script.js') }}"></script>
+          @endif
+        </div>
                      <!-- 送信ボタン -->
                      <div class="confirm">
-                    <input type="image" name="btn_confirm" src="images/edit.png"  alt="更新" value="更新" width="50" height="50">
+                    <input type="image" name="btn_confirm" src="images/edit.png" id='form_submit' alt="更新" value="更新" width="50" height="50">
                     </div>
                     @method('PUT')
                     {{ csrf_field() }}
             </form>
+
             <a class="js-modal-close" href="/top"></a>
         </div>
     </div>

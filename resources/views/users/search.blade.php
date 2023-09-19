@@ -1,6 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
+<div class="sab">
   <div class="post">
     <div class="search">
         <form action="/research" method="post" class="sea">
@@ -13,6 +14,7 @@
       @endif
     </div>
   </div>
+</div>
   <div class="post-card">
     <table class="table-block">
     @foreach($users as $user)

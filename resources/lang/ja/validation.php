@@ -145,6 +145,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'username' => '名前',
+        'mail' => 'メールアドレス',
+        'password' => 'パスワード',
+        'password_confirmation' => 'パスワード確認',
+        'bio' => '自己紹介文',
+        'images' => '画像',
+        'post' => '投稿内容',
+        'new_post' => '投稿内容',
+    ],
 
 ];
